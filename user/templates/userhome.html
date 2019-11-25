@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block menu %}	
+<ul>
+
+<li class="first">
+<a href={{curl}}user/ >User Home</a>
+</li>			
+
+<li><a href={{curl}}user/orderlistuser/ >Order List</a></li>
+<li><a href="" >Payment History</a></li>
+<li><a href="" >Edit Profile</a></li>
+
+<li class="last">
+<span class="opener">Settings<b></b></span>
+<ul>
+<li><a href="" >View Notification</a></li>
+<li><a href="" >Launch Feedbacks</a></li>
+<li><a href="" >Change Password</a></li>
+<li><a href={{curl}}login/  >Logout</a></li>
+</ul>
+</li>
+</ul>
+<b>Welcome User : {{cunm}}</b>
+{% endblock %}	
+
+{% block slider %}	
+{% endblock %}
+
+{% block page %}
+
+<center>
+<h1>Welcome To User panel</h1>
+<h2>Book My Meal</h2>
+</center>
+	
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

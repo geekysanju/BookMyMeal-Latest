@@ -1,0 +1,66 @@
+{% extends 'adminhome.html' %}
+
+
+{% block page %}
+
+<center>
+<h1>Add Food Product!!!</h1>
+<br>
+<font style="height:20px;" color="orange">{{output}}</font>
+<form enctype="multipart/form-data" method="post" action={{curl}}myadmin/addfoodproduct/  >
+{% csrf_token %}
+<table cellspacing="20">
+<tr>
+<td>Food Product Title</td>
+<td><input type="text" name="title" placeholder="Enter product title" /></td>
+</tr>
+<tr>
+<td>Category</td>
+<td>
+
+<select  style="width:250px;" name="subcatnm">
+<option>Select Category</option>
+{% for subcat in sclist %}
+<option>{{subcat.1}}</option>
+{% endfor %}
+</select>
+
+</td>
+</tr>
+<tr>
+<td>Description</td>
+<td><textarea cols="31" rows="5" name="description" placeholder="Enter Description"></textarea></td>
+</tr>
+
+<tr>
+<td>Food Product Price</td>
+<td><input type="text" name="price" placeholder="Enter product price" /></td>
+</tr>
+
+<tr>
+<td>Food Product Icon</td>
+<td>
+<input type="file" name="picon" />
+</td>
+</tr>
+
+<tr>
+<td>
+<input type="submit" value="Add Food Product" />
+</td>
+</tr>
+</table>
+</form>
+</center>
+	
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

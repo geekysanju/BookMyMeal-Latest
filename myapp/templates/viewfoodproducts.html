@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Food List  >>  {{scnm}}</h1>
+<p><b>Total Food Products : {{total}}</b></p>
+
+<form method="get" action={{curl}}viewfoodproducts/ >
+<table height="100" width="600" border="5">
+<tr>
+<td>
+Filter By Price:
+<br>
+<input type="hidden" name="scnm" value={{scnm}}  />
+<input type="text" name="sprice" placeholder="Enter starting price"/> - <input type="text" name="eprice" placeholder="Enter ending price"/>
+ <input type="submit" value="filter"/> 	
+</td>
+</tr>
+</table>
+</form>
+
+<br><hr><br>
+
+{% for p in plist %}
+<a href={{curl}}orderlogin/?pid={{p.0}}&price={{p.4}} >
+<table height="180" width="600" border="2">
+<tr>
+<td width="35%" rowspan="3">
+<center>
+<img  height="150" width="150" src={{media_url}}{{p.5}}  />
+</center>
+</td>
+<td><b>Title : {{p.1}}</b></td>
+</tr>
+<tr>
+<td><b>Description : {{p.3}}</b></td>
+</tr>
+<tr>
+<td><b>Price : &#8377;{{p.4}}</b></td>
+</tr>
+</table>
+</a>
+<br><br>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+{% block sidebar %}	
+<div class="box">
+<h3>Sub Category List</h3>
+<ul class="list">
+{% for scat in sclist %}
+<li>
+<a href={{curl}}viewfoodproducts/?scnm={{scat.1}} >{{scat.1}}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}	
+
+
+
+
+
+

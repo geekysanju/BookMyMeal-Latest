@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+#maindiv
+{
+	min-height:450px;
+	width:600px;
+}
+.maindiv_part
+{
+	height:150px;
+	width:200px;
+	float:left;
+}
+</style>
+<h1>Sub Category List  >>  {{cnm}}</h1>
+<br>
+<div id="maindiv">
+
+{% for subcat in sclist %}
+<a href={{curl}}viewfoodproducts/?scnm={{subcat.1}}    >
+<div class="maindiv_part">
+<center>
+<img src={{media_url}}{{subcat.3}}  height="100" width="150"/>
+<br>
+<b>{{subcat.1}}</b>
+</center>
+</div>
+</a>
+{% endfor %}
+
+</div>
+
+{% endblock %}
+
+{% block sidebar %}	
+<div class="box">
+<h3>Category List</h3>
+<ul class="list">
+{% for cat in clist %}
+<li>
+<a href={{curl}}viewsubcat/?cnm={{cat.1}} >{{cat.1}}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}	
+
+
+
+
+
+
+
+
+
+
+

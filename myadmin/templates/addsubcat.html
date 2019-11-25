@@ -1,0 +1,47 @@
+{% extends 'adminhome.html' %}
+
+
+{% block page %}
+
+<center>
+<h1>Add Sub Category Here!!!</h1>
+<font style="height:20px;" color="orange">{{output}}</font>
+<form enctype="multipart/form-data" method="post" action={{curl}}myadmin/addsubcat/  >
+{% csrf_token %}
+<br>
+Category name 
+
+<select  name="catnm">
+<option>Select Category</option>
+{% for cat in clist %}
+<option>{{cat.1}}</option>
+{% endfor %}
+</select>
+
+<br><br>
+Sub category name 
+<input type="text" name="subcatnm" placeholder="Enter sub category" />
+
+<br><br>
+
+Sub Category Icon
+<input type="file" name="caticon" />
+
+<br><br>
+
+<input type="submit" value="Add Sub Category" />
+</form>
+
+</center>
+	
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
